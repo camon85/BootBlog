@@ -53,14 +53,17 @@ public class PostController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(@Valid Post post, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "blog/post_form";
-        }
+//        if (bindingResult.hasErrors()) {
+//            return "blog/post_form";
+//        }
 
-        if (post.getId() == 0) {
+        int id = post.getId();
+        if (id == 0) { // 새 글
             post.setRegDate(new Date());
+        } else { // 기존 글 수정
+            Post storedPost = postRepository.findOne(id);
+            post.setRegDate(storedPost.getRegDate());
         }
-
 
         Post save = postRepository.save(post);
         return "redirect:/posts/" + save.getId();
