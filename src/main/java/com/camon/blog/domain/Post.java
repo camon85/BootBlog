@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -19,9 +21,17 @@ public class Post {
     @GeneratedValue
     private int id;
 
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(nullable = false)
     private String title;
 
-    @Column(length = 100)
+    @Size(max = 50)
+    private String subtitle;
+
+    @NotNull
+    @Size(min = 1, max = 1000)
+    @Column(nullable = false, length = 1000)
     private String content;
 
     private String writer;

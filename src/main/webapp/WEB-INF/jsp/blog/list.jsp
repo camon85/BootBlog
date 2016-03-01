@@ -71,10 +71,8 @@
             <c:forEach var="post" items="${posts}">
                 <div class="post-preview">
                     <a href="/posts/${post.id}">
-                        <h2 class="post-title">${post.title}</h2>
-                        <h3 class="post-subtitle">
-                            부제목
-                        </h3>
+                        <h2 class="post-title"><c:out value="${post.title}"/></h2>
+                        <h3 class="post-subtitle"><c:out value="${post.subtitle}"/></h3>
                     </a>
                     <p class="post-meta">Posted by <a href="#">${post.writer}</a> on ${post.regDate}</p>
                 </div>
