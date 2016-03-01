@@ -57,7 +57,11 @@ public class PostController {
             return "blog/post_form";
         }
 
-        post.setRegDate(new Date());
+        if (post.getId() == 0) {
+            post.setRegDate(new Date());
+        }
+
+
         Post save = postRepository.save(post);
         return "redirect:/posts/" + save.getId();
     }

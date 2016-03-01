@@ -77,6 +77,9 @@
 <form:form action="/posts/save" commandName="post" onsubmit="$('#content').val($('#pen').html()); pen.destroy();" method="post">
     <form:errors path="*" cssClass="errorblock" element="div" />
 
+    <form:hidden path="id"></form:hidden>
+    <form:input type="hidden" path="regDate" />
+
     <form:input type="text" path="title" placeholder="title"
            style="height: 70px; width: 100%; font-size: 55px; 
 			border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 1px; outline-style: none; 

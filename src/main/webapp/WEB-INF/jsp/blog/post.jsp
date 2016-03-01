@@ -77,6 +77,9 @@
             <a href="/posts/${post.id}/delete">
                 <button type="button" class="btn btn-danger">Delete</button>
             </a>
+            <a href="/posts/${post.id}/edit">
+                <button type="button" class="btn btn-warning">Edit</button>
+            </a>
         </div>
     </div>
 </article>
